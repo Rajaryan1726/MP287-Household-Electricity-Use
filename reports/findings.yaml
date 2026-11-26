@@ -26,8 +26,8 @@ data_issues:
     total_occurrences: 104
     start_record: R00397
     end_record: R00477
-    start_date: "2026-03-09"
-    end_date: "2026-03-25"
+    start_date: '2026-03-09'
+    end_date: '2026-03-25'
   target_typos:
     present: false
     min_target: 59.0
@@ -40,11 +40,10 @@ data_issues:
     column: connection
     raw_variant_count: 19
     canonical_values:
-      - domestic
-      - domestic_plus
-      - shop_cum_home
+    - domestic
+    - domestic_plus
+    - shop_cum_home
     feeder_variants: null
-
 tracking:
   tracking_uri: sqlite:///mlflow.db
   experiment_name: mp287-electricity-dehradun
@@ -54,12 +53,20 @@ tracking:
   model_name: mp287-electricity-model
   champion_version: 1
   model_path: models/model.joblib
-
 monitoring:
-  # To be populated by Member 3
-  most_drifted_feature: null
-  worst_served_feeder: null
-  v1_mae_last30: null
-  v2_mae_last30: null
-  promoted_v2: null
-  final_champion_version: null
+  psi:
+    rooms: 0.0066
+    members: 0.023
+    ac_hours_per_day: 3.7515
+    avg_temp_c: 0.0562
+    house_area_sqft: 0.0344
+    solar_kw: 0.0619
+  most_drifted_feature: ac_hours_per_day
+  mae_by_group:
+    Feeder-1: 44.603
+    Feeder-2: 196.4308
+    Feeder-3: 36.8057
+  worst_served_group: Feeder-2
+  mae_v1_on_check: 82.9843
+  mae_v2_on_check: 57.7898
+  decision: promote
