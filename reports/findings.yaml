@@ -1,0 +1,65 @@
+data_issues:
+  data_sha256: c1853666b7db886f1c5fa55971067c45b3341f61e2850bc83302870aadc44c63
+  leaking_column:
+    present: true
+    column: billed_units_after_reading
+    in_train: true
+    in_holdout: false
+    correlation_with_target: 0.998512
+    max_abs_diff: 21
+  unit_mixup:
+    present: false
+    anomalies: null
+  sentinel_values:
+    present: false
+    columns: null
+  duplicate_rows:
+    present: true
+    total_rows: 1039
+    duplicate_rows: 39
+    unique_rows: 1000
+  stuck_sensor:
+    present: true
+    column: solar_kw
+    stuck_value: 4.6
+    consecutive_rows: 85
+    total_occurrences: 104
+    start_record: R00397
+    end_record: R00477
+    start_date: "2026-03-09"
+    end_date: "2026-03-25"
+  target_typos:
+    present: false
+    min_target: 59.0
+    max_target: 702.0
+    r2_linear: 0.9462
+    max_abs_residual: 82.4
+    outlier_count: 0
+  spelling_variants:
+    present: true
+    column: connection
+    raw_variant_count: 19
+    canonical_values:
+      - domestic
+      - domestic_plus
+      - shop_cum_home
+    feeder_variants: null
+
+tracking:
+  tracking_uri: sqlite:///mlflow.db
+  experiment_name: mp287-electricity-dehradun
+  best_run_id: b0e5cf733b094c5287f3b80473364a8b
+  best_run_name: ridge_alpha_1.0
+  best_val_mae: 21.0057
+  model_name: mp287-electricity-model
+  champion_version: 1
+  model_path: models/model.joblib
+
+monitoring:
+  # To be populated by Member 3
+  most_drifted_feature: null
+  worst_served_feeder: null
+  v1_mae_last30: null
+  v2_mae_last30: null
+  promoted_v2: null
+  final_champion_version: null

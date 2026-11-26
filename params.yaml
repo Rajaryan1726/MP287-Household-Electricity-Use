@@ -1,0 +1,32 @@
+data:
+  raw_train: data/raw/train.csv
+  raw_later: data/raw/later.csv
+  holdout_features: data/raw/holdout_features.csv
+
+features:
+  numeric:
+    - rooms
+    - members
+    - ac_hours_per_day
+    - avg_temp_c
+    - house_area_sqft
+    - solar_kw
+  categorical:
+    - connection
+    - feeder
+  target: units_kwh
+  leak_column: billed_units_after_reading
+
+mlflow:
+  tracking_uri: sqlite:///mlflow.db
+  experiment_name: mp287-electricity-dehradun
+  registered_model_name: mp287-electricity-model
+
+training:
+  test_size: 0.2
+  random_state: 42
+  model_output_path: models/model.joblib
+
+monitoring:
+  psi_bins: 10
+  promotion_min_mae_improvement: 0.08
