@@ -51,7 +51,7 @@ tracking:
   best_run_name: ridge_alpha_1.0
   best_val_mae: 21.0057
   model_name: mp287-electricity-model
-  champion_version: 1
+  champion_version: 2
   model_path: models/model.joblib
 monitoring:
   psi:
