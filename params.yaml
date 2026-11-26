@@ -31,5 +31,6 @@ monitoring:
   psi_bins: 10
   promotion_min_mae_improvement: 0.08
   later_train_fraction: 0.7
+  v1_model_path: models/model_v1.joblib
   retrain_experiment_name: mp287-retrain-v2
   findings_path: reports/findings.yaml

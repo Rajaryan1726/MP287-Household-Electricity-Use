@@ -88,8 +88,9 @@ def run_monitoring(params_path: str | Path = "params.yaml", update_findings: boo
     train = clean(pd.read_csv(raw_train_path))
     later = pd.read_csv(params["data"]["raw_later"])  # PROBLEM.md: later.csv arrives clean
 
-    # v1 = the model Member 1 trained on cleaned train.csv only.
-    v1 = joblib.load(params["training"]["model_output_path"])
+    # v1 = the model Member 1 trained on cleaned train.csv only. It has its own file,
+    # because models/model.joblib always holds the current champion (v2 after promotion).
+    v1 = joblib.load(mon["v1_model_path"])
 
     # 1. Drift: PSI for every numeric column, cleaned train vs later.
     psi_scores = {c: round(psi(train[c], later[c], bins=int(mon["psi_bins"])), 4) for c in numeric_cols}
